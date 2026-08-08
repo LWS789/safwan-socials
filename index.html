@@ -1,120 +1,483 @@
-```html
-<!-- PROFILE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08090d">
+  <meta name="description" content="Connect with Safwan Abas on social media.">
 
-<section class="profile">
+  <title>Safwan Abas | Connect</title>
 
-  <div class="avatar-wrapper">
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <div class="avatar">
-      <img src="profile.jpeg" alt="Safwan Abas">
-    </div>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <div class="verified">
-      <i class="fa-solid fa-check"></i>
-    </div>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  </div>
+    html {
+      scroll-behavior: smooth;
+    }
 
-  <h1>Safwan Abas</h1>
+    body {
+      min-height: 100vh;
+      font-family: "Inter", sans-serif;
+      color: white;
 
-  <p class="username">
-    @sqfwqn_
-  </p>
+      background:
+        radial-gradient(circle at 50% -10%,
+          rgba(120, 120, 150, 0.28),
+          transparent 38%),
+        radial-gradient(circle at 0% 100%,
+          rgba(60, 60, 80, 0.18),
+          transparent 35%),
+        #08090d;
 
-  <p class="bio">
-    Connect with me through my social platforms.
-  </p>
+      display: flex;
+      justify-content: center;
+      padding: 40px 18px;
+      overflow-x: hidden;
+    }
 
-</section>
+    /* Ambient background glow */
+
+    body::before {
+      content: "";
+      position: fixed;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.035);
+      filter: blur(80px);
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* PROFILE */
+
+    .profile {
+      text-align: center;
+      margin-bottom: 32px;
+      animation: fadeUp 0.7s ease forwards;
+    }
+
+    .avatar-wrapper {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 18px;
+    }
+
+    .avatar {
+      width: 105px;
+      height: 105px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(145deg, #ffffff, #8d8d95);
+
+      color: #111;
+
+      font-size: 40px;
+      font-weight: 800;
+
+      border: 3px solid rgba(255,255,255,0.85);
+
+      box-shadow:
+        0 0 0 6px rgba(255,255,255,0.04),
+        0 15px 45px rgba(0,0,0,0.45);
+    }
+
+    .verified {
+      position: absolute;
+      right: 0;
+      bottom: 5px;
+
+      width: 28px;
+      height: 28px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #ffffff;
+      color: #111;
+
+      font-size: 13px;
+
+      border: 3px solid #090a0e;
+    }
+
+    h1 {
+      font-size: 29px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 7px;
+    }
+
+    .username {
+      color: #a7a7b0;
+      font-size: 14px;
+      margin-bottom: 13px;
+    }
+
+    .bio {
+      color: #d0d0d5;
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 340px;
+      margin: auto;
+    }
+
+    /* BUTTONS */
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .link {
+      position: relative;
+
+      min-height: 68px;
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-decoration: none;
+      color: white;
+
+      border-radius: 19px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.10),
+          rgba(255,255,255,0.035)
+        );
+
+      border: 1px solid rgba(255,255,255,0.12);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.20),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+      font-size: 15px;
+      font-weight: 700;
+
+      overflow: hidden;
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+      animation: fadeUp 0.6s ease forwards;
+      opacity: 0;
+    }
+
+    .link:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .link:nth-child(2) {
+      animation-delay: 0.18s;
+    }
+
+    .link:nth-child(3) {
+      animation-delay: 0.26s;
+    }
+
+    .link:nth-child(4) {
+      animation-delay: 0.34s;
+    }
+
+    .link::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background: linear-gradient(
+        110deg,
+        transparent 30%,
+        rgba(255,255,255,0.08),
+        transparent 70%
+      );
+
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+
+    .link:hover::before {
+      transform: translateX(100%);
+    }
+
+    .link:hover {
+      transform: translateY(-4px);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.15),
+          rgba(255,255,255,0.06)
+        );
+
+      border-color: rgba(255,255,255,0.28);
+
+      box-shadow:
+        0 15px 35px rgba(0,0,0,0.30),
+        inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+
+    .link:active {
+      transform: scale(0.97);
+    }
+
+    .icon {
+      position: absolute;
+      left: 21px;
+
+      width: 28px;
+
+      display: flex;
+      justify-content: center;
+
+      font-size: 22px;
+    }
+
+    .arrow {
+      position: absolute;
+      right: 21px;
+
+      color: #777780;
+      font-size: 13px;
+
+      transition: transform 0.2s ease;
+    }
+
+    .link:hover .arrow {
+      transform: translateX(4px);
+      color: #fff;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+
+      color: #686870;
+      font-size: 11px;
+      letter-spacing: 0.8px;
+
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
+    }
+
+    /* ANIMATION */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 400px) {
+
+      body {
+        padding: 30px 15px;
+      }
+
+      .avatar {
+        width: 92px;
+        height: 92px;
+        font-size: 34px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .link {
+        min-height: 64px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <!-- PROFILE -->
+
+    <section class="profile">
+
+      <div class="avatar-wrapper">
+
+        <!-- Replace the S with your photo later if you want -->
+        <div class="avatar">
+          S
+        </div>
+
+        <div class="verified">
+          <i class="fa-solid fa-check"></i>
+        </div>
+
+      </div>
+
+      <h1>Safwan Abas</h1>
+
+      <p class="username">
+        @sqfwqn_
+      </p>
+
+      <p class="bio">
+        Connect with me through my social platforms.
+      </p>
+
+    </section>
 
 
-<!-- SOCIAL BUTTONS -->
+    <!-- SOCIAL BUTTONS -->
 
-<section class="links">
+    <section class="links">
 
-  <!-- INSTAGRAM -->
+      <!-- INSTAGRAM -->
 
-  <a
-    class="link"
-    href="https://www.instagram.com/sqfwqn_/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <span class="icon">
-      <i class="fa-brands fa-instagram"></i>
-    </span>
+      <a
+        class="link"
+        href="https://www.instagram.com/sqfwqn_/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
 
-    Instagram
+        <span class="icon">
+          <i class="fa-brands fa-instagram"></i>
+        </span>
 
-    <span class="arrow">
-      <i class="fa-solid fa-chevron-right"></i>
-    </span>
-  </a>
+        Instagram
 
+        <span class="arrow">
+          <i class="fa-solid fa-chevron-right"></i>
+        </span>
 
-  <!-- WHATSAPP -->
-
-  <a
-    class="link"
-    href="https://wa.me/601155586243"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <span class="icon">
-      <i class="fa-brands fa-whatsapp"></i>
-    </span>
-
-    WhatsApp Me
-
-    <span class="arrow">
-      <i class="fa-solid fa-chevron-right"></i>
-    </span>
-  </a>
+      </a>
 
 
-  <!-- TIKTOK -->
+      <!-- WHATSAPP -->
 
-  <a
-    class="link"
-    href="https://www.tiktok.com/@notw4n"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <span class="icon">
-      <i class="fa-brands fa-tiktok"></i>
-    </span>
+      <a
+        class="link"
+        href="https://wa.me/601155586243"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
 
-    TikTok
+        <span class="icon">
+          <i class="fa-brands fa-whatsapp"></i>
+        </span>
 
-    <span class="arrow">
-      <i class="fa-solid fa-chevron-right"></i>
-    </span>
-  </a>
+        WhatsApp Me
 
+        <span class="arrow">
+          <i class="fa-solid fa-chevron-right"></i>
+        </span>
 
-  <!-- FACEBOOK -->
-
-  <a
-    class="link"
-    href="https://web.facebook.com/safwan.abas.12"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <span class="icon">
-      <i class="fa-brands fa-facebook"></i>
-    </span>
-
-    Facebook
-
-    <span class="arrow">
-      <i class="fa-solid fa-chevron-right"></i>
-    </span>
-  </a>
-
-</section>
+      </a>
 
 
-<footer class="footer">
-  SCAN • TAP • CONNECT
-</footer>
-```
+      <!-- TIKTOK -->
+
+      <a
+        class="link"
+        href="https://www.tiktok.com/@notw4n"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <span class="icon">
+          <i class="fa-brands fa-tiktok"></i>
+        </span>
+
+        TikTok
+
+        <span class="arrow">
+          <i class="fa-solid fa-chevron-right"></i>
+        </span>
+
+      </a>
+
+
+      <!-- FACEBOOK -->
+
+      <a
+        class="link"
+        href="https://web.facebook.com/safwan.abas.12"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <span class="icon">
+          <i class="fa-brands fa-facebook"></i>
+        </span>
+
+        Facebook
+
+        <span class="arrow">
+          <i class="fa-solid fa-chevron-right"></i>
+        </span>
+
+      </a>
+
+    </section>
+
+
+    <footer class="footer">
+      SCAN • TAP • CONNECT
+    </footer>
+
+  </main>
+
+</body>
+</html>
